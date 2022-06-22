@@ -350,20 +350,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    服务器配置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    客户端
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -434,20 +420,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    服务器配置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    客户端
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -467,8 +439,7 @@
 <p>homebrew官方仓库因为测试不通过的原因把tuntap从cask仓库中 <a href="https://github.com/Homebrew/homebrew-cask/pull/113283">删除</a> 了；
 因为一直没有在MacOS上面跟进测试，所以没有注意这个问题；
 近期会自建一个仓库来修复，不依赖homebrew cask的官方仓库了，它们变动太频繁了；</p>
-<p>简单处理了一下，现在可以安装了，请参考最新的安装步骤文档:
-https://forum.happyn.cn/d/6-macoshappyn
+<p>简单处理了一下，现在可以安装了，请参考最新的<a href="https://forum.happyn.cn/d/6-macoshappyn">安装步骤文档</a>:
 执行下面的命令就可以直接安装tuntap网络驱动了：</p>
 <pre><code>brew tap happynclient/taps
 brew install tuntap --cask
@@ -478,43 +449,51 @@ brew install tuntap --cask
 启动后还有签名的问题，允许后继续安装</p>
 <h2 id="macn2n">mac安装n2n</h2>
 <ol>
-<li>
-<p>安装brew
-ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”</p>
-</li>
-<li>
-<p>安装tun cmake ssl等支持
-brew tap homebrew/cask
+<li>安装brew</li>
+</ol>
+<pre><code>ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”
+</code></pre>
+<ol>
+<li>安装tun cmake ssl等支持</li>
+</ol>
+<pre><code>brew tap homebrew/cask
 brew install tuntap
 brew install openssl
-brew install cmake</p>
-</li>
-</ol>
-<p>ps: 如果是linux 需要安装 openssl sudo apt-get install libssl-dev</p>
-<p>3.clone或者unzip n2n压缩包
-git clone https://github.com/ntop/n2n</p>
-<ol>
-<li>开始编译
-mkdir build
+brew install cmake
+</code></pre>
+<p>ps: 如果是linux 需要安装 ```openssl sudo apt-get install libssl-dev</p>
+<pre><code>
+3.clone或者unzip n2n压缩包
+</code></pre>
+<p>git clone https://github.com/ntop/n2n</p>
+<pre><code>
+4. 开始编译
+</code></pre>
+<p>mkdir build
 cd build 
 cmake -DOPENSSL_ROOT_DIR=_usr_local_opt_openssl ../
-make</li>
-</ol>
-<p>5.optionally install
-sudo  make install</p>
-<h2 id="_1">服务器配置</h2>
-<p>作为服务器端，启动supernode</p>
-<pre><code>$ supernode -l 3307 -v
+make</p>
+<pre><code>
+5.optionally install
 </code></pre>
-<ul>
-<li>-l表示UDP监听端口</li>
-<li>-v表示详细输出
-A和C作为客户端，启动edge</li>
-</ul>
-<h2 id="_2">客户端</h2>
-<pre><code>sudo edge -d n2n0 -c mynetwork -k encryptme -a 172.16.0.200 -l a.b.c.d:3307 -M 1200 -m ae:e0:4f:e7:47:5c
-sudo edge -a 172.0.0.5 -c community -k edc123456 -l 175.178.222.96:10090 -f
+<p>sudo  make install</p>
+<pre><code>
+## 服务器配置
+
+作为服务器端，启动supernode
+
 </code></pre>
+<p>$ supernode -l 3307 -v</p>
+<pre><code>
+* -l表示UDP监听端口
+* -v表示详细输出
+A和C作为客户端，启动edge
+
+## 客户端
+
+</code></pre>
+<p>sudo edge -d n2n0 -c mynetwork -k encryptme -a 172.16.0.200 -l a.b.c.d:3307 -M 1200 -m ae:e0:4f:e7:47:5c
+```</p>
 <p>C操作
 $ sudo edge -d n2n0 -c mynetwork -k encryptme -a 172.16.0.201 -l a.b.c.d:3307 -M 1200 -m ae:e0:4f:e7:47:5b
 * -d表示新建虚拟网卡名
