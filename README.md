@@ -1,3 +1,1 @@
-# jeffersonchou.github.io
-
-Welcome to jeffersonchou's github
+https://jeffersonchou.github.io/
