@@ -2,7 +2,7 @@
 
 ## 本地编译环境
 
-1. 安装 python 依赖包
+* 安装 python 依赖包
 
 ```
 mkdocs==1.3.0
@@ -11,13 +11,13 @@ mkdocs-material-extensions==1.0.3
 mike==1.1.2
 ```
 
-2. 初始化本地项目 blog
+* 初始化本地项目 blog
 
 ```shell
 mkdocs new blog
 ```
 
-3. 关联github page
+## 生成并关联github page
 
 * 新建gitHub page项目
 创建一个名为为username.github.io的代码仓库，其中username为GitHub的账户名称。
@@ -47,7 +47,7 @@ mkdocs build
 
 删除除site之外的文件并将site文件夹的文件更新到root中，将项目文件夹更新到 gh-pages 分支，此时查看github page网页地址即可看到生成的页面；
 
-1. 利用 GitHub Action 完成自动化 mkdocs 编译
+## 利用 GitHub Action 完成自动化 mkdocs 编译
 
 * 点击 GitHub myblog 的 Action，新建一个 simple workflow
 
