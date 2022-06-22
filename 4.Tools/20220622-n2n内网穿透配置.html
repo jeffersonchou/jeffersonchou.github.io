@@ -350,6 +350,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    服务器配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    客户端
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -420,6 +434,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    服务器配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    客户端
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -461,48 +489,44 @@ brew install tuntap
 brew install openssl
 brew install cmake
 </code></pre>
-<p>ps: 如果是linux 需要安装 ```openssl sudo apt-get install libssl-dev</p>
-<pre><code>
-3.clone或者unzip n2n压缩包
+<p>ps: 如果是linux 需要安装 </p>
+<pre><code>openssl sudo apt-get install libssl-dev
 </code></pre>
-<p>git clone https://github.com/ntop/n2n</p>
-<pre><code>
-4. 开始编译
+<p>3.clone或者unzip n2n压缩包</p>
+<pre><code>git clone https://github.com/ntop/n2n
 </code></pre>
-<p>mkdir build
+<ol>
+<li>开始编译</li>
+</ol>
+<pre><code>mkdir build
 cd build 
 cmake -DOPENSSL_ROOT_DIR=_usr_local_opt_openssl ../
-make</p>
-<pre><code>
-5.optionally install
+make
 </code></pre>
-<p>sudo  make install</p>
-<pre><code>
-## 服务器配置
-
-作为服务器端，启动supernode
-
+<p>5.optionally install</p>
+<pre><code>sudo  make install
 </code></pre>
-<p>$ supernode -l 3307 -v</p>
-<pre><code>
-* -l表示UDP监听端口
-* -v表示详细输出
-A和C作为客户端，启动edge
-
-## 客户端
-
+<h2 id="_1">服务器配置</h2>
+<p>作为服务器端，启动supernode</p>
+<pre><code>$ supernode -l 3307 -v
 </code></pre>
-<p>sudo edge -d n2n0 -c mynetwork -k encryptme -a 172.16.0.200 -l a.b.c.d:3307 -M 1200 -m ae:e0:4f:e7:47:5c
-```</p>
-<p>C操作
-$ sudo edge -d n2n0 -c mynetwork -k encryptme -a 172.16.0.201 -l a.b.c.d:3307 -M 1200 -m ae:e0:4f:e7:47:5b
-* -d表示新建虚拟网卡名
-* -c表示n2n社区名
-* -k表示加密键值
-* -a表示自定义ip
-* -l表示服务器ip: 监听端口
-* -M表示虚拟网卡最大传输单位
-* -m表示虚拟网卡MAC地址</p>
+<ul>
+<li>-l表示UDP监听端口</li>
+<li>-v表示详细输出</li>
+</ul>
+<h2 id="_2">客户端</h2>
+<p>客户端，启动edge</p>
+<pre><code>sudo edge -d n2n0 -c mynetwork -k encryptme -a 172.16.0.201 -l a.b.c.d:3307 -M 1200 -m ae:e0:4f:e7:47:5b
+</code></pre>
+<ul>
+<li>-d表示新建虚拟网卡名</li>
+<li>-c表示n2n社区名</li>
+<li>-k表示加密键值</li>
+<li>-a表示自定义ip</li>
+<li>-l表示服务器ip: 监听端口</li>
+<li>-M表示虚拟网卡最大传输单位</li>
+<li>-m表示虚拟网卡MAC地址</li>
+</ul>
 
               
             </article>
