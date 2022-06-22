@@ -1,8 +1,8 @@
 # 20220622-使用mkdoc搭建github page
 
-## 基础流程
+## 本地编译环境
 
-* 安装 Python 依赖包
+1. 安装 python 依赖包
 
 ```
 mkdocs==1.3.0
@@ -11,32 +11,43 @@ mkdocs-material-extensions==1.0.3
 mike==1.1.2
 ```
 
-* 新建本地项目 blog
+2. 初始化本地项目 blog
 
 ```shell
 mkdocs new blog
 ```
 
-* 新建GitHub项目 blog 并 clone 到本地
+3. 关联github page
 
-* 在 clone 下来的 blog 中移入本地文件夹 blog 的内容，并 push 到远程仓库
+* 新建gitHub page项目
+创建一个名为为username.github.io的代码仓库，其中username为GitHub的账户名称。
+注：如果username与账户名称不匹配，将不会起作用
 
-* 新建 github-pages 分支
+* 修改README.md
+README.md需要修改，指向"https://jeffersonchou.github.io/"域名。
+
+* 准备github page项目
+Clone github Page项目，将mkdocs初始化的文件，移入移入项目本地文件夹，并 push 到远程仓库main分支。
+
+* 新建 gh-pages 分支，并设置github page的source页面
 
 ```
-git checkout -b github-pages
+git checkout -b gb-pages
 ```
 
-* 在 GitHub 项目文件夹下编译文件
+如图，设置source页面：
+
+![设置github page source页面](https://cdn.jsdelivr.net/gh/jeffersonchou/cloudimg@master/blog_img/20220622143930-2022-06-22-14-39-31.png)
+
+* 在项目文件夹下编译生成页面，并将页面提交到 gh-pages 分支
 
 ```shell
 mkdocs build
 ```
 
-* 删除除site之外的文件并将site文件夹的文件更新到root中
-* 将项目文件夹更新到 gh-pages 分支，此时查看 GitHub myblog 项目的 setting Pages 即可以看到对应网页地址
+删除除site之外的文件并将site文件夹的文件更新到root中，将项目文件夹更新到 gh-pages 分支，此时查看github page网页地址即可看到生成的页面；
 
-## 利用 GitHub Action 完成自动化 mkdocs 编译
+1. 利用 GitHub Action 完成自动化 mkdocs 编译
 
 * 点击 GitHub myblog 的 Action，新建一个 simple workflow
 
